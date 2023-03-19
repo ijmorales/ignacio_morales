@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root "homes#index"
+
+  namespace :experiments do
+    resource :kanban_board, only: :show
+  end
 end
