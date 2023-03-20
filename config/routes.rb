@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root "homes#index"
 
   namespace :experiments do
-    resource :kanban_board, only: :show
+    resource :kanban_board, only: :show do
+      resources :cards, only: :update, module: :kanban_boards
+    end
   end
 end
