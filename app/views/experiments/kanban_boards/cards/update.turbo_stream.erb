@@ -1,0 +1,4 @@
+<%= turbo_stream.remove @card.id %>
+<%= turbo_stream.append @card.status do %>
+  <%= render 'experiments/kanban_boards/cards/card', card: @card %>
+<% end %>

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
 
   namespace :experiments do
-    resource :kanban_board, only: :show
+    resource :kanban_board, only: :show do
+      resources :cards, only: :update, module: :kanban_boards
+    end
   end
 end
