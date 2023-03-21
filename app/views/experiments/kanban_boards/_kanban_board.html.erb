@@ -1,11 +1,11 @@
 <div class="container" data-controller="kanban-board" id="<%= kanban_board.id %>">
   <h1 class="mb-4"><%= kanban_board.model_name.human %></h1>
 
-  <div class="w-full h-full grid grid-cols-3 gap-4">
+  <div class="w-full h-full flex gap-4">
     <% kanban_board.cards_by_status.each do |status, cards| %>
-      <div class="p-5 border-2 border-solid border-black h-1/3 flex-grow-0 overflow-scroll" id="<%= status %>" name="status-container">
+      <div class="p-5 border-2 border-solid border-black w-1/3 flex-grow-0 overflow-scroll" id="<%= status %>" name="status-container" data-action="drop->kanban-board#drop dragover->kanban-board#dragOver">
         <h2><%= status %></h2>
-        <ul class="list-none grid grid-cols-1 gap-2">
+        <ul class="list-none grid grid-cols-1 gap-2" id="<%= status %>_list">
           <% cards.each do |card| %>
             <li><%= render 'experiments/kanban_boards/cards/card', card: card %></li>
           <% end %>

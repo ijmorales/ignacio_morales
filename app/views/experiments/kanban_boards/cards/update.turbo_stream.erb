@@ -1,4 +1,4 @@
 <%= turbo_stream.remove @card.id %>
-<%= turbo_stream.append @card.status do %>
+<%= turbo_stream.append [@card.status, :list].join('_') do %>
   <%= render 'experiments/kanban_boards/cards/card', card: @card %>
 <% end %>
