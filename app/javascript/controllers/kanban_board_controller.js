@@ -10,15 +10,7 @@ export default class extends Controller {
   }
 
   dragEnd(event) {
-    return
-  }
-
-  dragEnter(event) {
-    if (event.preventDefault) {
-      event.preventDefault()
-    }
-
-    return false
+    event.target.style.opacity = 1
   }
 
   dragOver(event) {
@@ -27,10 +19,6 @@ export default class extends Controller {
     }
 
     return false
-  }
-
-  dragLeave(e) {
-    return
   }
 
   drop(event) {
