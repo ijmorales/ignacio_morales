@@ -23,9 +23,9 @@ export default class extends Controller {
 
   drop(event) {
     event.stopPropagation()
-    console.log("drop", event.target.closest("[name='status-container']"))
+    const cardId = this.dragSrcEl.id.split("_").pop()
 
-    fetch(`/experiments/kanban_board/cards/${this.dragSrcEl.id}`, {
+    fetch(`/experiments/kanban_board/cards/${cardId}`, {
       method: "PATCH",
       credentials: "same-origin",
       headers: {
@@ -34,7 +34,6 @@ export default class extends Controller {
         "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").content
       },
       body: JSON.stringify({
-        card_id: this.dragSrcEl.dataset.cardId,
         card: {
           status: event.target.closest("[name='status-container']").id
         }
