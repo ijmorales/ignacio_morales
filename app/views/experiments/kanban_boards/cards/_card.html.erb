@@ -1,7 +1,7 @@
 <div class="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer hover:bg-gray-100"
      draggable="true"
      data-action="dragstart->kanban-board#dragStart dragend->kanban-board#dragEnd"
-     id="<%= card.id %>">
+     id="<%= dom_id(card) %>">
   <div class="p-4">
     <h3 class="font-medium text-gray-900 mb-2"><%= card.title %></h3>
     <p class="text-gray-700"><%= card.description %></p>
