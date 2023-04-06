@@ -78,3 +78,7 @@ gem "faker", "~> 3.1"
 
 gem "rubocop", "~> 1.48"
 gem "rubocop-rails", "~> 2.18"
+
+gem "bcrypt", "~> 3.1"
+
+gem "font-awesome-rails", "~> 4.7"

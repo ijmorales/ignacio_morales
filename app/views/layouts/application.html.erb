@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ignaciomorales</title>
+    <title>IM</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,9 +11,45 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+  <body class="bg-gray-100">
+    <div class="flex flex-col min-h-screen">
+      <nav class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="flex flex-col justify-center">
+              <%= link_to "Home", root_path %>
+            </div>
+            <div class="flex flex-col justify-center">
+              <% if logged_in? %>
+                <div class="flex items-center justify-center">
+                  <p><%= current_user.first_name %></p>
+                  <%= button_to "Logout", logout_path, method: :delete, class: "bg-red-400 text-white font-bold py-1 px-3 rounded ml-3" %>
+                </div>
+              <% else %>
+                <%= link_to "Login", login_path, class: "bg-blue-400 text-white font-bold py-1 px-3 rounded ml-3" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="flex-1 flex items-center justify-center">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="">
+            <%= render 'layouts/flash_messages' %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+
+      <footer class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+          <%= link_to "https://github.com/ijmorales/ignacio_morales", class: "text-gray-800 hover:text-gray-600 py-5", target: '_blank' do %>
+            <%= fa_icon "github", class: "inline-block h-6" %>
+            <span class="ml-1">View on GitHub</span>
+          <% end %>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
