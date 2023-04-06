@@ -35,3 +35,6 @@
 
 # Ignore Jetbrains
 .idea/*
+
+# Ignore node_modules
+node_modules/*
