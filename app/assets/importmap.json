@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "fontawesome": "/node_modules/@fortawesome/fontawesome-free",
+    "@fortawesome/fontawesome-free-solid": "/node_modules/@fortawesome/fontawesome-free/js/solid",
+    "@fortawesome/fontawesome-free-regular": "/node_modules/@fortawesome/fontawesome-free/js/regular",
+    "@fortawesome/fontawesome-free-brands": "/node_modules/@fortawesome/fontawesome-free/js/brands"
+  }
+}
