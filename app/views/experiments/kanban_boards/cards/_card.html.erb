@@ -1,9 +1,19 @@
-<div class="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer hover:bg-gray-100"
+<div class="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer hover:bg-gray-100 relative"
      draggable="true"
      data-action="dragstart->kanban-board#dragStart dragend->kanban-board#dragEnd"
      id="<%= dom_id(card) %>">
   <div class="p-4">
-    <h3 class="font-medium text-gray-900 mb-2"><%= card.title %></h3>
+    <div class="flex justify-between items-start">
+      <h3 class="font-medium text-gray-900 mb-2"><%= card.title %></h3>
+      <button class="text-gray-400 hover:text-gray-600 focus:outline-none" data-dropdown-toggle>
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+    </div>
+    <div class="hidden bg-white shadow-md rounded-md p-2 absolute top-0 right-0 mt-8 mr-2 z-10" data-dropdown-menu>
+      <!-- Add dropdown menu actions here -->
+      <a href="#" class="block text-gray-700 hover:bg-gray-100 px-2 py-1 rounded-md">Action 1</a>
+      <a href="#" class="block text-gray-700 hover:bg-gray-100 px-2 py-1 rounded-md">Action 2</a>
+    </div>
     <p class="text-gray-700"><%= card.description %></p>
   </div>
 </div>
