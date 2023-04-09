@@ -1,15 +1,15 @@
 module Authorizable
-  include Authenticable
-
   extend ActiveSupport::Concern
 
+  include Authenticable
+
   included do
-    before_action :check_for_authenticated_user
+    before_action :authorize_user!
   end
 
   private
 
-  def check_for_authenticated_user
+  def authorize_user!
     respond_with_not_authorized unless authorized?
   end
 
@@ -18,6 +18,6 @@ module Authorizable
   end
 
   def respond_with_not_authorized
-    render status: :unauthorized
+    render file: "public/401.html", status: :unauthorized
   end
 end
